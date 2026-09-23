@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced IoT Weather Monitoring System - প্রজেক্ট বিবরণ</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- KaTeX for Math Equations Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .project-detail-container {
+            max-width: 950px;
+            margin: 100px auto 50px auto;
+            padding: 40px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-header {
+            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .chapter-title {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 12px;
+        }
+
+        .sub-chapter-title {
+            font-size: 1.2rem;
+            color: #38bdf8;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .component-item {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .component-item strong {
+            color: #38bdf8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        th {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+        }
+
+        pre {
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <main class="main-content">
+        <div class="project-detail-container">
+            <a href="../microcontroller.html" class="back-btn"><i class="fas fa-arrow-left"></i> পূর্ববর্তী পেজে ফিরে যান</a>
+            
+            <div class="project-header">
+                <h1 class="project-title">Advanced IoT Weather Monitoring System</h1>
+            </div>
+
+            <!-- ১. ভূমিকা -->
+            <h2 class="chapter-title">১. ভূমিকা (Introduction)</h2>
+            <p>বর্তমান বিশ্বে জলবায়ু পরিবর্তন এবং পরিবেশগত ভারসাম্যহীনতা একটি বড় সমস্যা। এই পরিস্থিতিতে রিয়েল-টাইম আবহাওয়া পর্যবেক্ষণ ব্যবস্থা অত্যন্ত গুরুত্বপূর্ণ। ইন্টারনেট অফ থিংস (IoT) প্রযুক্তির সাহায্যে আমরা এখন খুব সহজেই যেকোনো স্থানের আবহাওয়া সংক্রান্ত তথ্য সংগ্রহ এবং বিশ্লেষণ করতে পারি।</p>
+            <p>এই প্রজেক্টটির মূল উদ্দেশ্য হলো একটি নির্ভরযোগ্য, সাশ্রয়ী এবং উচ্চ-ক্ষমতাসম্পন্ন "IoT Weather Monitoring System" তৈরি করা, যা ESP32 মাইক্রোকন্ট্রোলার এবং BME280 সেন্সর ব্যবহার করে তাপমাত্রা, আর্দ্রতা এবং বায়ুচাপ পরিমাপ করবে। সংগৃহীত ডেটা ইন্টারনেটের মাধ্যমে একটি ক্লাউড সার্ভারে পাঠানো হবে, যার ফলে ব্যবহারকারী পৃথিবীর যেকোনো প্রান্ত থেকে স্মার্টফোন বা কম্পিউটারের মাধ্যমে লাইভ ডেটা দেখতে পারবেন।</p>
+            <p>এই সিস্টেমটি শুধুমাত্র ব্যক্তিগত ব্যবহারের জন্য নয়, বরং শিল্পকারখানা, কৃষি, গবেষণাগার এবং স্মার্ট সিটি প্রজেক্টেও ব্যাপকভাবে ব্যবহারযোগ্য। প্রথাগত আবহাওয়া পর্যবেক্ষণ কেন্দ্রগুলোর তুলনায় এটি তৈরি করা অনেক সহজ এবং রক্ষণাবেক্ষণ খরচও নগণ্য।</p>
+
+            <!-- ২. ইতিহাস ও বিবর্তন -->
+            <h2 class="chapter-title">২. ইতিহাস ও বিবর্তন (History and Evolution)</h2>
+            
+            <h3 class="sub-chapter-title">২.১ আবহাওয়া পর্যবেক্ষণের আদি রূপ</h3>
+            <p>মানুষ প্রাচীনকাল থেকেই আবহাওয়া পরিবর্তনের পূর্বাভাস দেওয়ার চেষ্টা করে আসছে। ১৬৪৩ সালে ইভানজেলিস্তা টরিসেলি (Evangelista Torricelli) ব্যারোমিটার আবিষ্কার করেন, যা বায়ুচাপ মাপার ক্ষেত্রে এক যুগান্তকারী পদক্ষেপ ছিল। এরপর ১৮শ ও ১৯শ শতাব্দীতে থার্মোমিটার ও হাইগ্রোমিটারের ব্যাপক উন্নয়ন ঘটে। তবে এই সব পরিমাপক যন্ত্র ছিল ম্যানুয়াল- অর্থাৎ একজন মানুষকে সশরীরে গিয়ে ডেটা লিখে রাখতে হতো।</p>
+
+            <h3 class="sub-chapter-title">২.২ অটোমেশন এবং ডিজিটাল যুগ</h3>
+            <p>১৯৭০-এর দশকে ডিজিটাল সেন্সর এবং ডাটা লগার (Data Logger) আবিষ্কারের ফলে আবহাওয়া পর্যবেক্ষণ কেন্দ্রগুলো স্বয়ংক্রিয় হতে শুরু করে। তবে সেই ডেটাগুলো একটি নির্দিষ্ট মেমরি কার্ড বা কম্পিউটারে সেভ হতো, যা দূর থেকে দেখা সম্ভব ছিল না। ডেটা ট্রান্সমিশনের জন্য রেডিও ফ্রিকোয়েন্সি ব্যবহার করা হলেও তা ছিল অত্যন্ত ব্যয়বহুল।</p>
+
+            <h3 class="sub-chapter-title">২.৩ ইন্টারনেট অফ থিংস (IoT)-এর যুগ</h3>
+            <p>১৯৭৯ সালে কেভিন অ্যাশটন (Kevin Ashton) প্রথম "Internet of Things" বা IoT শব্দটি ব্যবহার করেন। ২০১৪ সালের দিকে Espressif Systems যখন অত্যন্ত কম দামের ওয়াইফাই-যুক্ত ESP8266 চিপ বাজারে নিয়ে আসে, তখন মেকার কমিউনিটিতে (Maker Community) এক বিশাল বিপ্লব ঘটে। পরবর্তীতে ২০১৬ সালে আরও শক্তিশালী ESP32 চিপ রিলিজ হওয়ার পর আধুনিক IoT প্রজেক্টগুলোর কাঠামো পুরোপুরি বদলে যায়। বর্তমানে সস্তা সেন্সর (যেমন- BME280) এবং শক্তিশালী ক্লাউড কম্পিউটিংয়ের কল্যাণে যে কেউ একটি পারফেক্ট ওয়েদার স্টেশন তৈরি করতে পারে।</p>
+
+            <!-- ৩. ব্যবহৃত হার্ডওয়্যার বিশ্লেষণ -->
+            <h2 class="chapter-title">৩. ব্যবহৃত হার্ডওয়্যার বিশ্লেষণ (Hardware Architecture)</h2>
+            <p>এই প্রজেক্টটিতে ব্যবহৃত প্রতিটি ইলেকট্রনিক উপাদানের প্রযুক্তিগত বিশ্লেষণ নিচে দেওয়া হলো। একজন ইলেকট্রিক্যাল ইঞ্জিনিয়ারিংয়ের শিক্ষার্থী হিসেবে এই মডিউলগুলোর কার্যপ্রণালী জানা অত্যন্ত জরুরি।</p>
+
+            <div class="component-item">
+                <strong>৩.১ ESP32 মাইক্রোকন্ট্রোলার</strong>
+                <p>ESP32 হলো Espressif Systems দ্বারা তৈরি একটি লো-কস্ট, লো-পাওয়ার সিস্টেম-অন-চিপ (SoC) মাইক্রোকন্ট্রোলার। এতে একই সাথে Wi-Fi এবং Dual-mode Bluetooth যুক্ত রয়েছে।</p>
+                <ul>
+                    <li><strong>প্রসেসর:</strong> Tensilica Xtensa Dual-Core 32-bit LX6 মাইক্রোপ্রসেসর।</li>
+                    <li><strong>ক্লক স্পিড:</strong> এটি 160 MHz থেকে 240 MHz স্পিডে কাজ করতে পারে, যা সাধারণ Arduino Uno (16 MHz) এর চেয়ে অনেক গুণ বেশি শক্তিশালী।</li>
+                    <li><strong>মেমরি:</strong> এতে 520 KB SRAM এবং 4 MB (বা তার বেশি) ফ্ল্যাশ মেমরি থাকে।</li>
+                    <li><strong>অপারেটিং ভোল্টেজ:</strong> 3.3V (তবে ব্রেডবোর্ড ফ্রেন্ডলি ডেভলপমেন্ট বোর্ডে একটি 5V থেকে 3.3V ভোল্টেজ রেগুলেটর থাকে)।</li>
+                    <li><strong>GPIO পিন:</strong> এতে সর্বমোট ৩৪টি প্রোগ্রামেবল পিন (GPIO) রয়েছে, যা দিয়ে বিভিন্ন সেন্সর, রিলে এবং ডিসপ্লে নিয়ন্ত্রণ করা যায়।</li>
+                </ul>
+                <p><strong>কেন ESP32 ব্যবহার করা হলো?</strong> ESP8266 এর তুলনায় ESP32 অনেক বেশি ফাস্ট, এতে পিনের সংখ্যা বেশি এবং এটি I2C, SPI, UART এর মতো মাল্টিপল প্রোটোকল দারুণভাবে সাপোর্ট করে। প্রজেক্টটিকে ভবিষ্যতে আরও বড় করার জন্য ESP32 হলো সেরা পছন্দ।</p>
+            </div>
+
+            <div class="component-item">
+                <strong>৩.২ BME280 এনভায়রনমেন্টাল সেন্সর</strong>
+                <p>BME280 সেন্সরটি Bosch Sensortec দ্বারা তৈরি একটি সমন্বিত পরিবেশগত সেন্সর। এটি একই সাথে তাপমাত্রা, আপেক্ষিক আর্দ্রতা এবং ব্যারোমেট্রিক চাপ নিখুঁতভাবে মাপতে পারে।</p>
+                <ul>
+                    <li><strong>তাপমাত্রা পরিমাপ:</strong> এটি -40°C থেকে +85°C পর্যন্ত তাপমাত্রা মাপতে পারে। এর অ্যাকুরেসি ±1.0°C। এর ভেতরের থার্মিস্টর (Thermistor) উপাদানের রেজিস্ট্যান্স পরিবর্তনের মাধ্যমে তাপমাত্রা মাপা হয়।</li>
+                    <li><strong>আর্দ্রতা পরিমাপ:</strong> এটি 0% থেকে 100% আপেক্ষিক আর্দ্রতা (Relative Humidity) মাপতে পারে। অ্যাকুরেসি ±3%। এর ক্যাপাসিটিভ পলিমার লেয়ার পরিবেশের জলীয় বাষ্প শুষে নেয়, যার ফলে ক্যাপাসিট্যান্স পরিবর্তন হয়।</li>
+                    <li><strong>বায়ুচাপ পরিমাপ:</strong> এটি 300 hPa থেকে 1100 hPa পর্যন্ত বায়ুচাপ মাপতে পারে। পিজো-রেজিস্টিভ মেকানিজম ব্যবহার করে এটি কাজ করে।</li>
+                    <li><strong>ইন্টারফেস:</strong> এটি I2C এবং SPI উভয় প্রোটোকলেই কাজ করে।</li>
+                </ul>
+            </div>
+
+            <div class="component-item">
+                <strong>৩.৩ পাওয়ার সাপ্লাই ইউনিট</strong>
+                <p>সম্পূর্ণ সার্কিটটিকে সচল রাখার জন্য একটি 5V DC পাওয়ার সাপ্লাই প্রয়োজন। সাধারণত মাইক্রো-ইউএসবি বা টাইপ-সি ক্যাবলের মাধ্যমে মোবাইল চার্জার বা পাওয়ার ব্যাংক থেকে বিদ্যুৎ সরবরাহ করা যায়। তবে রিমোট এলাকার জন্য লিথিয়াম-আয়ন (18650) ব্যাটারি এবং একটি TP4056 চার্জিং মডিউল ব্যবহার করা যেতে পারে।</p>
+            </div>
+
+            <!-- ৪. যোগাযোগ প্রোটোকল -->
+            <h2 class="chapter-title">৪. যোগাযোগ প্রোটোকল (Communication Protocols)</h2>
+            
+            <h3 class="sub-chapter-title">৪.১ I2C (Inter-Integrated Circuit)</h3>
+            <p>BME280 সেন্সর এবং ESP32 এর মধ্যে ডেটা আদান-প্রদানের জন্য I2C প্রোটোকল ব্যবহার করা হয়। এটি একটি সিঙ্কোনাস, মাল্টি-মাস্টার, মাল্টি-স্লেভ প্রোটোকল। এতে মাত্র দুটি তার প্রয়োজন হয়:</p>
+            <ul>
+                <li><strong>SDA (Serial Data):</strong> এই লাইনের মাধ্যমে ডেটা আদান-প্রদান হয়।</li>
+                <li><strong>SCL (Serial Clock):</strong> এই লাইনটি ক্লক সিগন্যাল তৈরি করে যাতে ডেটা ট্রান্সমিশন সিনক্রোনাইজড থাকে।</li>
+            </ul>
+            <p>ESP32 এর ক্ষেত্রে ডিফল্ট I2C পিনগুলো হলো SDA -> GPIO 21 এবং SCL -> GPIO 22।</p>
+
+            <h3 class="sub-chapter-title">৪.২ ক্লাউড কমিউনিকেশন (Wi-Fi & HTTP/MQTT)</h3>
+            <p>ESP32 যখন সেন্সর থেকে I2C প্রোটোকলে ডেটা সংগ্রহ করে, তখন সেই ডেটা ক্লাউডে পাঠানোর জন্য Wi-Fi ব্যবহার করা হয়। ডেটা ট্রান্সমিট করার জন্য সাধারণত HTTP POST/GET মেথড অথবা MQTT প্রোটোকল ব্যবহার করা হয়। IoT প্রজেক্টের জন্য MQTT অত্যন্ত জনপ্রিয় কারণ এটি খুব কম ব্যান্ডউইথ ব্যবহার করে এবং অনেক দ্রুত কাজ করে।</p>
+
+            <!-- ৫. সার্কিট ডিজাইন ও সংযোগ পদ্ধতি -->
+            <h2 class="chapter-title">৫. সার্কিট ডিজাইন ও সংযোগ পদ্ধতি</h2>
+            <p>এই প্রজেক্টের কানেকশন খুবই সহজ। নিচে পিন সংযোগের টেবিল দেওয়া হলো:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>BME280 সেন্সর পিন</th>
+                        <th>ESP32 পিন</th>
+                        <th>বিবরণ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>VCC (বা VIN)</td>
+                        <td>3V3 (3.3 Volt)</td>
+                        <td>সেন্সরকে পাওয়ার দেওয়ার জন্য (কখনোই 5V এ দেওয়া উচিত নয়)</td>
+                    </tr>
+                    <tr>
+                        <td>GND</td>
+                        <td>GND</td>
+                        <td>সার্কিটের গ্রাউন্ড সম্পূর্ণ করার জন্য</td>
+                    </tr>
+                    <tr>
+                        <td>SCL</td>
+                        <td>D22 (GPIO 22)</td>
+                        <td>I2C ক্লক লাইন</td>
+                    </tr>
+                    <tr>
+                        <td>SDA</td>
+                        <td>D21 (GPIO 21)</td>
+                        <td>I2C ডেটা লাইন</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ৬. সফটওয়্যার ইমপ্লিমেন্টেশন ও অ্যালগরিদম -->
+            <h2 class="chapter-title">৬. সফটওয়্যার ইমপ্লিমেন্টেশন ও অ্যালগরিদম</h2>
+            <p>প্রজেক্টের কোডিং অংশটি Arduino IDE ব্যবহার করে C++ ভাষায় করা হয়। প্রথমে Board Manager থেকে "esp32 by Espressif Systems" এবং Library Manager থেকে Adafruit BME280 Library ইনস্টল করতে হবে।</p>
+
+            <h3 class="sub-chapter-title">৬.১ সোর্স কোড (Source Code)</h3>
+            <pre><code class="language-cpp">#include &lt;Wire.h&gt;
+#include &lt;Adafruit_Sensor.h&gt;
+#include &lt;Adafruit_BME280.h&gt;
+#include &lt;WiFi.h&gt;
+
+#define SEALEVELPRESSURE_HPA (1013.25)
+
+Adafruit_BME280 bme; // I2C
+
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("WiFi connected");
+
+  if (!bme.begin(0x76)) {
+    Serial.println("Could not find a valid BME280 sensor, check wiring!");
+    while (1);
+  }
+}
+
+void loop() {
+  float temp = bme.readTemperature();
+  float hum = bme.readHumidity();
+  float pres = bme.readPressure() / 100.0F;
+
+  Serial.print("Temperature = ");
+  Serial.print(temp);
+  Serial.println(" *C");
+
+  Serial.print("Humidity = ");
+  Serial.print(hum);
+  Serial.println("%");
+
+  Serial.print("Pressure = ");
+  Serial.print(pres);
+  Serial.println(" hPa");
+
+  delay(10000); // 10 seconds delay
+}</code></pre>
+
+            <!-- ৭. ক্লাউড প্ল্যাটফর্ম ইন্টিগ্রেশন -->
+            <h2 class="chapter-title">৭. ক্লাউড প্ল্যাটফর্ম ইন্টিগ্রেশন (Cloud Setup)</h2>
+            <p>ডেটা লাইভ দেখার জন্য ThingSpeak বা Blynk ব্যবহার করা যেতে পারে।</p>
+            <ol>
+                <li>ThingSpeak ওয়েবসাইটে গিয়ে একটি ফ্রি অ্যাকাউন্ট খুলতে হবে।</li>
+                <li>"New Channel" তৈরি করে Field 1 (Temperature), Field 2 (Humidity) এবং Field 3 (Pressure) নামে তিনটি ফিল্ড অ্যাক্টিভ করতে হবে।</li>
+                <li>API Keys অপশন থেকে "Write API Key" কপি করে Arduino কোডে বসাতে হবে।</li>
+                <li>প্রতি ১৫-২০ সেকেন্ড পর পর সেন্সর ডেটা ক্লাউডে আপলোড হয়ে গ্রাফ আকারে দেখাবে।</li>
+            </ol>
+
+            <!-- ৮. প্রয়োগক্ষেত্র ও সুবিধা -->
+            <h2 class="chapter-title">৮. প্রয়োগক্ষেত্র ও সুবিধা (Applications)</h2>
+            <ul>
+                <li><strong>স্মার্ট এগ্রিকালচার:</strong> ফসল বা গ্রিনহাউসের পরিবেশ মনিটর করতে।</li>
+                <li><strong>শিল্প ও কারখানা:</strong> নির্দিষ্ট তাপমাত্রা ও আর্দ্রতা বজায় রাখতে।</li>
+                <li><strong>মেডিকেল স্টোরেজ:</strong> সংবেদনশীল ওষুধ ও ভ্যাকসিন সংরক্ষণে।</li>
+                <li><strong>স্মার্ট সিটি:</strong> পরিবেশের আবহাওয়া পর্যবেক্ষণ ম্যাপ তৈরিতে।</li>
+            </ul>
+
+            <!-- ৯. সীমাবদ্ধতা ও চ্যালেঞ্জসমূহ -->
+            <h2 class="chapter-title">৯. সীমাবদ্ধতা ও চ্যালেঞ্জসমূহ</h2>
+            <ul>
+                <li><strong>বিদ্যুৎ নির্ভরতা:</strong> ESP32 প্রচুর কারেন্ট টানে, তাই ব্যাটারি সেভের জন্য Deep Sleep প্রয়োজন।</li>
+                <li><strong>ইন্টারনেট সংযোগ:</strong> ক্লাউডে ডেটা পাঠাতে সার্বক্ষণিক ওয়াইফাই প্রয়োজন।</li>
+                <li><strong>পরিবেশগত সংবেদনশীলতা:</strong> সেন্সরকে সরাসরি বৃষ্টি ও ধুলোবালি থেকে বাঁচাতে ওয়েদার প্রুফ কেসিং বাধ্যতামূলক।</li>
+            </ul>
+
+            <!-- ১০. ভবিষ্যৎ সম্ভাবনা -->
+            <h2 class="chapter-title">১০. ভবিষ্যৎ সম্ভাবনা (Future Scopes)</h2>
+            <ul>
+                <li>আর্টিফিশিয়াল ইন্টেলিজেন্স (AI) যুক্ত করে আবহাওয়ার পূর্বাভাস দেওয়া।</li>
+                <li>সৌরবিদ্যুৎ (Solar Power) ও ব্যাটারি যুক্ত করে স্বয়ংসম্পূর্ণ করা।</li>
+                <li>LoRaWAN প্রযুক্তি ব্যবহার করে ইন্টারনেট ছাড়াই বহু দূরে ডেটা পাঠানো।</li>
+            </ul>
+
+            <!-- ১১. উপসংহার -->
+            <h2 class="chapter-title">১১. উপসংহার</h2>
+            <p>পরিশেষে বলা যায়, ESP32 এবং BME280 ব্যবহার করে তৈরি এই "IoT Weather Monitoring System" প্রজেক্টটি আধুনিক প্রযুক্তিগত শিক্ষার এক অনন্য উদাহরণ। ইলেকট্রিক্যাল এবং ইলেকট্রনিক্স ইঞ্জিনিয়ারিংয়ের দৃষ্টিকোণ থেকে সার্কিট ডিজাইন, মাইক্রোকন্ট্রোলার প্রোগ্রামিং এবং ক্লাউড আর্কিটেকচার শেখার জন্য এটি একটি আদর্শ প্রজেক্ট।</p>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Md. Ahsan Habib Shizan</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+     <header class="navbar">
+        <a href="index.html" class="logo">Shizan.2</a>
+        <button class="menu-toggle" id="menuToggle">Menu <i class="fas fa-bars"></i></button>
+
+        <nav class="nav-menu" id="navMenu">
+            <ul class="menu-list">
+                <li style="--d: 1;"><a href="index.html">Home</a></li>
+                <li style="--d: 2;"><a href="profile.html" class="active">About Me</a></li>
+                <li style="--d: 3;" class="has-dropdown">
+                    <a href="#" class="dropdown-btn">Projects <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="video-editing.html"><i class="fas fa-video"></i> Video Editing</a></li>
+                        <li><a href="graphics-design.html"><i class="fas fa-pen-nib"></i> Graphics Design</a></li>
+                        <li><a href="microcontroller.html"><i class="fas fa-microchip"></i> Microcontroller</a></li>
+                    </ul>
+                </li>
+                <li style="--d: 4;"><a href="services.html">Services</a></li>
+                <li style="--d: 5;"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="about-wrapper">
+        <div class="container">
+            
+            <div class="page-header text-center">
+                <h1 class="glow-text">About Me</h1>
+                <p class="subtitle">My background, technical skills, projects, and future vision</p>
+            </div>
+
+            <section class="about-card intro-card">
+                <h2><i class="fas fa-user-graduate"></i> 1. Introduction & Future Aspirations</h2>
+                <div class="bio-content">
+                    <div class="bio-block">
+                        <h3><i class="fas fa-university"></i> Background & Education</h3>
+                        <p>I am currently pursuing a Diploma in Electrical Engineering at <strong>Western Ideal Institute (WII)</strong> in Dhaka. Since childhood, I have had an intense curiosity about how electronic circuits, motors, and devices function under the hood. Beyond academic theory, I thrive in hands-on practical lab work, circuit assembly, prototyping, and coding.</p>
+                    </div>
+
+                    <div class="bio-block">
+                        <h3><i class="fas fa-plane-departure"></i> Future Plan: Japan Journey</h3>
+                        <p>My immediate goal after completing my diploma is to move to Japan—the global epicenter of robotics, mechatronics, and precision hardware engineering. I aim to work in high-tech laboratories and industries there to absorb their work discipline and advanced technologies.</p>
+                    </div>
+
+                    <div class="bio-block">
+                        <h3><i class="fas fa-rocket"></i> Long-Term Vision (Tech Startup)</h3>
+                        <p>Building upon the knowledge and expertise gained from Japan, my long-term vision is to establish my own technology and hardware startup. I aspire to develop cost-effective automation and robotics solutions to address complex challenges in industrial automation, agriculture, and smart living.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-card skills-card">
+                <h2><i class="fas fa-tools"></i> 2. Technical Skills & Tools Analysis</h2>
+                <p class="section-desc">I don't just code or build circuits; I leverage an entire technical ecosystem for problem-solving:</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <div class="box-icon"><i class="fas fa-microchip"></i></div>
+                        <h3>Hardware & Microcontrollers</h3>
+                        <ul>
+                            <li><strong>ESP32 & ESP8266:</strong> Used for IoT remote data monitoring and Wi-Fi/Bluetooth wireless control systems.</li>
+                            <li><strong>Arduino (Nano/Uno):</strong> My go-to tool for rapid circuit logic testing and basic sensor integration.</li>
+                            <li><strong>Raspberry Pi:</strong> Applied for complex processing, OS-based applications, and intermediate robotics.</li>
+                            <li><strong>Sensors & Modules:</strong> Ultrasonic, MQ Gas, Soil Moisture, LDR, PIR, Flame Sensor, and SIM800L GSM Module for real-time environment data processing.</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-box">
+                        <div class="box-icon"><i class="fas fa-code"></i></div>
+                        <h3>Programming & Web Tech</h3>
+                        <ul>
+                            <li><strong>Embedded C++ & Python:</strong> C++ for real-time logic execution on microcontrollers and Python for data handling or Pi projects.</li>
+                            <li><strong>Web Technologies:</strong> HTML, CSS, and JavaScript for building custom IoT web dashboards.</li>
+                            <li><strong>IDE Tools:</strong> Arduino IDE and VS Code for writing, debugging, and configuring libraries.</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-box">
+                        <div class="box-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Visual Design & Media Tools</h3>
+                        <ul>
+                            <li><strong>Adobe Illustrator:</strong> Designing circuit diagrams, vector artwork, logos, and t-shirt graphics.</li>
+                            <li><strong>Photoshop, Lightroom & Snapseed:</strong> Post-production color grading and photo processing.</li>
+                            <li><strong>CapCut:</strong> Video demonstration editing for technical projects and short promotional media.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-card projects-card">
+                <h2><i class="fas fa-project-diagram"></i> 3. Portfolio of 22 Projects</h2>
+                
+                <div class="project-category">
+                    <h3><i class="fas fa-leaf"></i> (1) Smart Home, Agricultural & Eco-Friendly Automation</h3>
+                    <div class="project-list-grid">
+                        <div class="p-item"><strong>Automatic Street Light Controller:</strong> Detects nighttime darkness via LDR sensors to automatically switch streetlights on/off and conserve energy.</div>
+                        <div class="p-item"><strong>Smart Irrigation System:</strong> Measures soil moisture levels to control water pumps automatically, ensuring optimal agricultural water usage.</div>
+                        <div class="p-item"><strong>Smart Energy Meter:</strong> Measures power consumption (voltage & current) in real time and displays metrics on a display screen.</div>
+                        <div class="p-item"><strong>Home Automation System:</strong> Allows remote wireless control of home lights, fans, and appliances via a custom mobile application.</div>
+                        <div class="p-item"><strong>Automatic Water Level Controller:</strong> Monitors water tank levels to toggle pumps automatically and prevent overflow.</div>
+                        <div class="p-item"><strong>Smart Traffic Light System:</strong> Dynamically controls green light duration based on real-time road vehicle density.</div>
+                        <div class="p-item"><strong>IoT Weather Monitoring System:</strong> Measures temperature, humidity, and atmospheric pressure, transmitting live data to the cloud.</div>
+                        <div class="p-item"><strong>Automatic Room Light Controller:</strong> Counts room occupancy to turn lights on when people are inside and off when empty.</div>
+                        <div class="p-item"><strong>Smart Fan Speed Controller:</strong> Automatically increases fan speed as ambient room temperature rises.</div>
+                        <div class="p-item"><strong>Solar Tracking System:</strong> Rotates solar panels along the sun's trajectory to maximize daily solar power generation.</div>
+                    </div>
+                </div>
+
+                <div class="project-category">
+                    <h3><i class="fas fa-robot"></i> (2) Robotics & Autonomous Machines</h3>
+                    <div class="project-list-grid">
+                        <div class="p-item"><strong>Line Follower Robot (LFR):</strong> Autonomously navigates by following a designated black track or path on the ground.</div>
+                        <div class="p-item"><strong>Obstacle Avoiding Robot:</strong> Uses ultrasonic sensors to detect obstacles ahead and dynamically re-routes its navigation path.</div>
+                        <div class="p-item"><strong>Bluetooth Controlled Robot:</strong> Driven wirelessly via Bluetooth commands generated from a custom smartphone interface.</div>
+                        <div class="p-item"><strong>Voice Controlled Robot:</strong> Operates autonomously based on spoken voice commands such as "Go Forward" or "Stop".</div>
+                        <div class="p-item"><strong>Fire Fighting Robot:</strong> Detects fire outbreaks, navigates to the target area, and suppresses flames using an onboard water pump.</div>
+                        <div class="p-item"><strong>Robotic Arm:</strong> Designed to precisely grip, lift, and relocate physical objects across coordinates.</div>
+                        <div class="p-item"><strong>Wi-Fi Controlled Surveillance Robot:</strong> Powered by ESP32-CAM to stream live video feeds and allow remote driving over Wi-Fi.</div>
+                        <div class="p-item"><strong>Autonomous Delivery Robot:</strong> Indoor prototype engineered for automated delivery of essential medicine or tools.</div>
+                        <div class="p-item"><strong>Solar Panel Cleaning Robot:</strong> Utilizes motors and brushes to clean dust accumulation off solar panels, maintaining efficiency.</div>
+                        <div class="p-item"><strong>Smart Hospital Assistant Robot:</strong> Follows floor tracks to transport emergency files and medicine between hospital wards.</div>
+                    </div>
+                </div>
+
+                <div class="project-category">
+                    <h3><i class="fas fa-shield-alt"></i> (3) Safety & Industrial Alert Systems</h3>
+                    <div class="project-list-grid">
+                        <div class="p-item"><strong>Fire Detection and Alarm System:</strong> Triggers safety sirens upon sensing smoke emissions or sudden temperature spikes.</div>
+                        <div class="p-item"><strong>Gas Leakage Detection System:</strong> Triggers a loud buzzer and sends instant SMS notifications to mobile phones when LPG/combustible gas leaks occur.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-card hobbies-card">
+                <h2><i class="fas fa-heart"></i> 4. Creative Hobbies & Passions</h2>
+                <div class="hobbies-grid">
+                    <div class="hobby-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <h4>Nature Photography</h4>
+                        <p>Capturing the beauty of nature outdoors and performing color grading via Lightroom and Snapseed.</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-cubes"></i>
+                        <h4>DIY Model Crafting</h4>
+                        <p>Designing and constructing small-scale architectural and engineering models using cardboard and wood.</p>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-paint-brush"></i>
+                        <h4>Art, Sketching & Thread Craft</h4>
+                        <p>Free-hand sketching, vector designing on Illustrator, and weaving traditional geometric patterns using threads.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-card contact-card text-center">
+                <h2><i class="fas fa-paper-plane"></i> 5. Connect With Me</h2>
+                <p>Feel free to explore my source code, design work, or reach out directly through these platforms:</p>
+                
+                <div class="social-links-grid">
+                    <a href="https://github.com/ahshanhabib2005" target="_blank" class="s-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://linkedin.com/in/md-ahshan-habib" target="_blank" class="s-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://facebook.com/AhosanHadid" target="_blank" class="s-btn"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://instagram.com/ahshanhabib2003" target="_blank" class="s-btn"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://twitter.com/ahshanhabib2005" target="_blank" class="s-btn"><i class="fab fa-twitter"></i> Twitter (X)</a>
+                    <a href="mailto:ahshanhabib2233@gmail.com" class="s-btn"><i class="fas fa-envelope"></i> Email</a>
+                    <a href="https://wa.me/8801590059760" target="_blank" class="s-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp / IMO</a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

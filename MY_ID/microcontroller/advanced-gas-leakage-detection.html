@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Gas Leakage Detection & Automated Mitigation System - প্রজেক্ট বিবরণ</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- KaTeX for Math Equations Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+    <!-- Prism.js for Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: Arial, sans-serif;
+        }
+
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .projects-container {
+    display: flex;
+    flex-direction: column; /* প্রজেক্টগুলো উপর থেকে নিচে এক সারিতে সাজবে */
+    align-items: center;    /* মাঝ বরাবর রাখতে চাইলে (ঐচ্ছিক) */
+    gap: 20px;              /* প্রজেক্টগুলোর মাঝের দূরত্ব */
+}
+
+        .project-detail-container {
+            max-width: 950px;
+            margin: 100px auto 50px auto;
+            padding: 40px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-5px);
+        }
+
+        .project-header {
+            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+        }
+
+        .chapter-title {
+            font-size: 1.5rem;
+            color: #fbbf24;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 12px;
+        }
+
+        .sub-chapter-title {
+            font-size: 1.2rem;
+            color: #38bdf8;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .component-item {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .component-item strong {
+            color: #38bdf8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        th {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+        }
+
+        pre {
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <main class="main-content">
+        <div class="project-detail-container">
+            <a href="../microcontroller.html" class="back-btn"><i class="fas fa-arrow-left"></i> পূর্ববর্তী পেজে ফিরে যান</a>
+            
+            <div class="project-header">
+                <h1 class="project-title">Advanced Gas Leakage Detection & Automated Mitigation System</h1>
+            </div>
+
+            <!-- ১. প্রজেক্টের সারসংক্ষেপ -->
+            <h2 class="chapter-title">১. প্রজেক্টের সারসংক্ষেপ (Abstract)</h2>
+            <p>বর্তমান শিল্পায়ন ও আধুনিক গৃহস্থালিতে এলপিজি (LPG), মিথেন এবং অন্যান্য দাহ্য গ্যাসের ব্যবহার বহুলভাবে বৃদ্ধি পেয়েছে। তবে অসাবধানতা বা যান্ত্রিক ত্রুটির কারণে গ্যাস লিকেজ হয়ে ভয়াবহ অগ্নিকাণ্ড, বিস্ফোরণ ও প্রাণহানির ঝুঁকি তৈরি হয়। এই গবেষণামূলক প্রজেক্টে একটি আধুনিক, স্বয়ংক্রিয় ও নির্ভরযোগ্য "Advanced Gas Leakage Detection and Automated Mitigation System" ডিজাইন ও বাস্তবায়ন করা হয়েছে।</p>
+            <p>সিস্টেমটি বাতাসের গুণমান এবং দাহ্য গ্যাসের ঘনত্ব (PPM - Parts Per Million) রিয়েল-টাইমে পর্যবেক্ষণ করে। কোনো এলাকায় গ্যাসের পরিমাণ বিপদসীমা অতিক্রম করলে সিস্টেমটি তাৎক্ষণিকভাবে স্থানীয়ভাবে হাই-ডেসিবল বুজার (Buzzer) অ্যালার্ম বাজায়, GSM মডিউলের মাধ্যমে দায়িত্বপ্রাপ্ত ব্যক্তির মোবাইলে কাস্টমাইজড SMS বার্তা পাঠায় এবং ইলেকট্রোমেকানিক্যাল রিলে মডিউলের মাধ্যমে এক্সহস্ট ফ্যান চালু করে বাতাস থেকে গ্যাস বের করে দেয়। এটি একটি সম্পূর্ণ অটোমেটেড সেফটি নেটওয়ার্ক প্রদান করে।</p>
+
+            <!-- ২. ভূমিকা ও পটভূমি -->
+            <h2 class="chapter-title">২. ভূমিকা ও পটভূমি (Introduction & Background)</h2>
+            <p>গ্যাস লিকেজজনিত দুর্ঘটনা বর্তমানে বিশ্বব্যাপী একটি বড় উদ্বেগ। বিশেষ করে গৃহস্থালির রান্নাঘর, রেস্তোরাঁ, সিএনজি ফিলিং স্টেশন, মেটাল প্রসেসিং ইন্ডাস্ট্রি এবং রাসায়নিক কারখানায় দাহ্য গ্যাস অত্যন্ত বিপজ্জনক অবস্থায় থাকে। এলপিজি প্রধানত প্রোপেন ($C_3H_8$) এবং বিউটেন ($C_4H_{10}$)-এর মিশ্রণ, যা বাতাসের চেয়ে ভারী হওয়ায় লিকেজ হলে মেঝের কাছাকাছি জমা হতে থাকে এবং সামান্য বৈদ্যুতিক স্পার্কের সংযোগ পেলেই বিশাল বিস্ফোরণ ঘটায়।</p>
+            <p>সনাতন পদ্ধতিতে মানুষ কেবল গন্ধ পেয়ে গ্যাস লিকেজ শনাক্ত করতে পারে, যা অনেক সময় ঘুমের মধ্যে বা অবর্তমানে সম্ভব হয় না। এই সমস্যা সমাধানে এমবেডেড সিস্টেম (Embedded Systems) এবং ইন্টারনেট অব থিংস (IoT) প্রযুক্তির সমন্বয়ে এই প্রজেক্টটি তৈরি করা হয়েছে, যা মানুষের উপস্থিতি ছাড়াই ২৪/৭ নিরবচ্ছিন্ন নিরাপত্তা সুনিশ্চিত করে।</p>
+
+            <!-- ৩. সেন্সর প্রযুক্তির বিস্তারিত ইতিহাস -->
+            <h2 class="chapter-title">৩. সেন্সর প্রযুক্তির বিস্তারিত ইতিহাস (History of Gas Sensor Technology)</h2>
+            <p>ইন্ডাস্ট্রিয়াল সেফটি ও প্রযুক্তি বিবর্তনের ইতিহাস বিশ্লেষণ করলে দেখা যায়, আদি যুগে কয়লা খনিতে মিথেন বা বিষাক্ত কার্বন মনোক্সাইড শনাক্ত করার জন্য খনি শ্রমিকরা খাঁচায় বন্দী 'ক্যানারি পাখি' (Canary Birds) সাথে নিয়ে যেত। বাতাসে বিষাক্ত গ্যাসের উপস্থিতি ঘটলে সংবেদনশীল পাখিটি প্রথমে অসুস্থ বা মারা যেত, যা শ্রমিকদের খনি খালি করার সতর্কবার্তা দিত।</p>
+            <p>১৯৫২ সালে ডেনিস হ্যারিয়ট প্রথম মেটাল অক্সাইড সেমিকন্ডাক্টর (MOS) গ্যাসের প্রাথমিক নীতি আবিষ্কার করেন। পরবর্তীতে ১৯৬২ সালে জাপানি গবেষক নাভোশি তাগুচি (Naoyoshi Taguchi) প্রথম কমার্শিয়াল টিন ডাই-অক্সাইড ($SnO_2$) ভিত্তিক সেমিকন্ডাক্টর গ্যাস সেন্সর পেটেন্ট করেন। যখন গরম টিন ডাই-অক্সাইড সারফেস রিডিউসিং গ্যাসের (যেমন LPG বা CO) সংস্পর্শে আসে, তখন এর ইলেকট্রন ডেনসিটি বৃদ্ধি পায় এবং সারফেস রেজিস্ট্যান্স আশঙ্কাজনকভাবে হ্রাস পায়। এই উদ্ভাবনের ওপর ভিত্তি করেই আধুনিক MQ সিরিজের গ্যাস সেন্সরগুলো विकसित হয়েছে।</p>
+
+            <!-- ৪. প্রজেক্টের মূল উদ্দেশ্যসমূহ -->
+            <h2 class="chapter-title">৪. প্রজেক্টের মূল উদ্দেশ্যসমূহ (Objectives)</h2>
+            <ul>
+                <li><strong>রিয়েল-টাইম গ্যাস মনিটরিং:</strong> বাতাসের গ্যাসের ঘনত্ব সার্বক্ষণিক সুনির্দিষ্টভাবে পরিমাপ করা।</li>
+                <li><strong>বহুমাত্রিক অ্যালার্ট সিস্টেম:</strong> গ্যাস লিকেজ হওয়া মাত্র অডিও অ্যালার্ম (Buzzer) এবং রিমোট মোবাইল নোটিফিকেশন (SMS) প্রদান।</li>
+                <li><strong>অটোমেটেড প্রতিরোধ ব্যবস্থা:</strong> রিলে সুইচিংয়ের মাধ্যমে এক্সহস্ট ফ্যান ট্রিগার করে দ্রুত গ্যাস অপসারণ করা।</li>
+                <li><strong>ফলস অ্যালার্ম প্রতিরোধ:</strong> সঠিক ক্যালিব্রেশন এবং সফটওয়্যার থ্রেশহোল্ডিং প্রয়োগের মাধ্যমে মিথ্যা অ্যালার্ম কমিয়ে আনা।</li>
+            </ul>
+
+            <!-- ৫. সিস্টেম আর্কিটেকচার -->
+            <h2 class="chapter-title">৫. সিস্টেম আর্কিটেকচার (System Architecture & Block Diagram)</h2>
+            <p>পুরো প্রজেক্টটি একটি ক্লোজড-লুপ কন্ট্রোল সিস্টেমের মতো কাজ করে। এটি প্রধানত ৪টি মূল স্তরে বিভক্ত:</p>
+            <ul>
+                <li><strong>সেন্সিং লেয়ার (Sensing Layer):</strong> MQ-2 Gas Sensor কেমিক্যাল পরিবর্তনকে ইলেকট্রিক্যাল ভোল্টেজে রূপান্তর করে।</li>
+                <li><strong>প্রসেসিং লেয়ার (Processing Layer):</strong> ESP32 Microcontroller সেন্সরের অ্যানালগ ডাটা প্রসেস করে সিদ্ধান্ত গ্রহণ করে।</li>
+                <li><strong>কমিউনিকেশন লেয়ার (Communication Layer):</strong> SIM800L GSM Module সেলুলার নেটওয়ার্ক ব্যবহার করে কাস্টমাইজড বার্তা পাঠায়।</li>
+                <li><strong>একচুয়েশন লেয়ার (Actuation Layer):</strong> 5V Relay Module, Buzzer এবং Exhaust Fan শারীরিক প্রতিরোধ মূলক ব্যবস্থা গ্রহণ করে।</li>
+            </ul>
+
+            <!-- ৬. প্রয়োজনীয় হার্ডওয়্যার ও যন্ত্রাংশের বিবরণ -->
+            <h2 class="chapter-title">৬. প্রয়োজনীয় হার্ডওয়্যার ও যন্ত্রাংশের বিবরণ (Hardware Description)</h2>
+            
+            <div class="component-item">
+                <strong>১. ESP32 ডেভলপমেন্ট বোর্ড</strong>
+                <p><strong>বিবরণ:</strong> এটি প্রজেক্টের মূল মস্তিষ্ক। এতে রয়েছে Tensilica Xtensa Dual-Core 32-bit প্রসেসর, যা ২৪০ মেগাহার্টজ স্পিডে কাজ করে। এর ১২-বিট এনালগ-টু-ডিজিটাল কনভার্টার (ADC) সেন্সরের ডাটা নিখুঁতভাবে বিশ্লেষণ করে।</p>
+            </div>
+
+            <div class="component-item">
+                <strong>২. MQ-2 গ্যাস সেন্সর</strong>
+                <p><strong>বিবরণ:</strong> এটি একটি মেটাল অক্সাইড সেমিকন্ডাক্টর (MOS) সেন্সর। এটি ৩০০ PPM থেকে ১০,০০০ PPM রেঞ্জে LPG, আইসো-বিউটেন, প্রোপেন, মিথেন, অ্যালকোহল ও ধোঁয়ার উপস্থিতি পরিমাপ করতে পারে।</p>
+            </div>
+
+            <div class="component-item">
+                <strong>৩. SIM800L GSM মডিউল</strong>
+                <p><strong>বিবরণ:</strong> এটি একটি ছোট আকৃতির সেলুলার মডিউল যা Quad-band (850/900/1800/1900MHz) সাপোর্ট করে। UART সিগন্যাল ও AT Command-এর মাধ্যমে এটি প্রসেসরের নির্দেশে সরাসরি SMS পাঠায়।</p>
+            </div>
+
+            <div class="component-item">
+                <strong>৪. ৫ ভোল্ট রিলে মডিউল</strong>
+                <p><strong>বিবরণ:</strong> এটি অপটোকাপলার যুক্ত একটি ড্রাইভার সার্কিট। কম ভোল্টেজের মাইক্রোকন্ট্রোলারের মাধ্যমে উচ্চ ভোল্টেজের এক্সহস্ট ফ্যান বা সোলোনয়েড ভালভ নিরাপদে নিয়ন্ত্রণ করতে এটি কাজ করে।</p>
+            </div>
+
+            <div class="component-item">
+                <strong>৫. এক্সহস্ট ফ্যান, বুজার ও পাওয়ার সাপ্লাই</strong>
+                <p><strong>বিবরণ:</strong> নিরাপত্তা নিশ্চিত করতে ফ্যান বাতাস বের করে দেয়, ৯৫dB বুজার শব্দ করে বিপদ জানায় এবং একটি Buck Converter স্থায়ী বিদ্যুৎ সরবরাহ নিশ্চিত করে।</p>
+            </div>
+
+            <!-- ৭. কাজের পদ্ধতি ও কার্যপ্রণালী -->
+            <h2 class="chapter-title">৭. কাজের পদ্ধতি ও কার্যপ্রণালী (Working Principle)</h2>
+            <ol>
+                <li><strong>হিটিং ও প্রিপারেশন:</strong> MQ-2 সেন্সরের অভ্যন্তরীণ ইন্টারনাল হিটার (Internal Heater) হিটিং কয়েলকে উত্তপ্ত করে সেন্সিং কেমিক্যাল সক্রিয় করে।</li>
+                <li><strong>ডাটা একুইজিশন:</strong> সেন্সর থেকে অ্যানালগ ভোল্টেজ সিগন্যাল ESP32-এর GPIO36 (ADC1_CH0) পিনে আসে। ADC ভোল্টেজকে ০ থেকে ৪০৯৫ ডিজিটাল মানদণ্ডে পরিবর্তন করে।</li>
+                <li><strong>থ্রেশহোল্ড চেক:</strong> প্রোগ্রাম কোডে আগে থেকেই একটি নিরাপত্তা সীমা (যেমন:১৮০০ ডিজিট বা ৩০০ PPM) সেট করা থাকে। প্রসেসর ক্রমাগত বর্তমান রিডিং পরীক্ষা করে।</li>
+                <li><strong>ট্রিপিং ও একচুয়েশন:</strong> যদি সেন্সর ভ্যালু থ্রেশহোল্ড অতিক্রম করে, তবে প্রসেসর ডিজিটাল পিন হাই (HIGH) করে দিলে রিলে চালু হয়ে ফ্যান ও বুজার অন হয়।</li>
+                <li><strong>মেসেজিং সাবসিস্টেম:</strong> একই সময়ে Hardware Serial2 ব্যবহার করে SIM800L কে AT Command (<code>AT+CMGS</code>) পাঠায় এবং ব্যবহারকারীর ফোনে জরুরি বার্তা ডেলিভারি হয়।</li>
+            </ol>
+
+            <!-- ৮. সার্কিট ডায়াগ্রাম ও পুঙ্খানুপুঙ্খ কানেকশন বিবরণ -->
+            <h2 class="chapter-title">৮. সার্কিট ডায়াগ্রাম ও পুঙ্খানুপুঙ্খ কানেকশন বিবরণ (Circuit Connections)</h2>
+            <p>সিস্টেমের বিভিন্ন মডিউলের মধ্যে সঠিক কানেকশন ছক নিচে তুলে ধরা হলো:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>মডিউলের নাম</th>
+                        <th>মডিউল পিন</th>
+                        <th>ESP32 পিন / পাওয়ার সাপ্লাই</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MQ-2 Sensor</td>
+                        <td>VCC / GND / AOUT</td>
+                        <td>5V / GND / GPIO 36 (VP)</td>
+                    </tr>
+                    <tr>
+                        <td>SIM800L GSM</td>
+                        <td>VCC / GND / TXD / RXD</td>
+                        <td>4.0V Buck Output / GND / GPIO 16 (RX2) / GPIO 17 (TX2)</td>
+                    </tr>
+                    <tr>
+                        <td>5V Relay Module</td>
+                        <td>VCC / GND / IN</td>
+                        <td>5V / GND / GPIO 25</td>
+                    </tr>
+                    <tr>
+                        <td>Piezo Buzzer</td>
+                        <td>Positive (+) / Negative (-)</td>
+                        <td>GPIO 26 / GND</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ৯. প্রজেক্টের সোর্স কোড -->
+            <h2 class="chapter-title">৯. প্রজেক্টের সোর্স কোড (Source Code - Embedded C/C++)</h2>
+            <p>Arduino IDE ব্যবহার করে ESP32 বোর্ডের জন্য ডেভেলপ করা সোর্স কোড:</p>
+
+            <pre><code class="language-cpp">#include &lt;HardwareSerial.h&gt;
+
+// পিন কনফিগারেশন
+const int gasSensorPin = 36; // MQ-2 Analog Pin (GPIO 36)
+const int buzzerPin = 26;    // Buzzer Pin
+const int relayPin = 25;     // Relay Pin
+const int threshold = 1800;  // বিপদসীমা (ADC Value)
+
+// SIM800L এর জন্য Hardware Serial 2 নির্ধারণ
+HardwareSerial sim800(2);
+
+bool smsSent = false;
+
+void setup() {
+  Serial.begin(115200);
+  
+  // ESP32 Hardware Serial2: RX=16, TX=17
+  sim800.begin(9600, SERIAL_8N1, 16, 17);
+
+  pinMode(gasSensorPin, INPUT);
+  pinMode(buzzerPin, OUTPUT);
+  pinMode(relayPin, OUTPUT);
+
+  digitalWrite(buzzerPin, LOW);
+  digitalWrite(relayPin, LOW);
+
+  Serial.println("System Initializing... Pre-heating Sensor...");
+  delay(10000); // প্রাথমিক ওয়ার্ম-আপ সময়
+}
+
+void loop() {
+  int sensorValue = analogRead(gasSensorPin);
+  Serial.print("Gas Sensor ADC Value: ");
+  Serial.println(sensorValue);
+
+  if (sensorValue > threshold) {
+    // বিপদকালীন অবস্থা
+    digitalWrite(buzzerPin, HIGH);
+    digitalWrite(relayPin, HIGH); // ফ্যান চালু
+    
+    if (!smsSent) {
+      sendEmergencySMS(sensorValue);
+      smsSent = true;
+    }
+  } else {
+    // স্বাভাবিক অবস্থা
+    digitalWrite(buzzerPin, LOW);
+    digitalWrite(relayPin, LOW);
+    smsSent = false; // রিসেট
+  }
+  
+  delay(1000);
+}
+
+void sendEmergencySMS(int val) {
+  Serial.println("Sending Emergency SMS via SIM800L...");
+  sim800.println("AT+CMGF=1"); // SMS টেক্সট মোড
+  delay(1000);
+  
+  sim800.println("AT+CMGS=\"+8801590059760\""); // প্রাপকের মোবাইল নম্বর
+  delay(1000);
+  
+  sim800.print("EMERGENCY ALERT: High Gas Leakage Detected! Sensor Level: ");
+  sim800.print(val);
+  sim800.print(". Exhaust Fan Activated.");
+  delay(500);
+  
+  sim800.write(26); // Ctrl+Z কমান্ড পাঠানো
+  delay(3000);
+  Serial.println("SMS Sent Successfully!");
+}</code></pre>
+
+            <!-- ১০. গাণিতিক ফর্মুলা ও ক্যালিব্রেশন -->
+            <h2 class="chapter-title">১০. গাণিতিক ফর্মুলা ও ক্যালিব্রেশন (Mathematical Analysis)</h2>
+            <p>MQ-2 সেন্সরের সারফেস রেজিস্ট্যান্স ($R_s$) এবং গ্যাসের ঘনত্বের (PPM) সম্পর্ক একটি লগারিদমিক সমীকরণ মেনে চলে:</p>
+
+            $$R_s = \left( \frac{V_{in} - V_{out}}{V_{out}} \right) \times R_L$$
+
+            <p>যেখানে $V_{in}$ হলো ইনপুট ভোল্টেজ (5V), $V_{out}$ হলো সেন্সরের অ্যানালগ আউটপুট ভোল্টেজ এবং $R_L$ হলো লোড রেজিস্ট্যান্স (10kΩ)। পরিষ্কার বাতাসে সংগৃহীত রেজিস্ট্যান্সের মানকে $R_0$ ধরা হয়। ডাটাশিট অনুযায়ী $\frac{R_s}{R_0}$ অনুপাত নির্ণয় করে নিখুঁত PPM গণনা করা হয়।</p>
+
+            <!-- ১১. সুবিধা ও প্রয়োগের ক্ষেত্র -->
+            <h2 class="chapter-title">১১. সুবিধা ও প্রয়োগের ক্ষেত্র (Applications)</h2>
+            <p><strong>প্রধান সুবিধাসমূহ:</strong></p>
+            <ul>
+                <li>সম্পূর্ণ স্বয়ংক্রিয় প্রসেসিং, মানুষের ওপর নির্ভশীল নয়।</li>
+                <li>ঘটনা ঘটার সাথে সাথে তাৎক্ষণিক বার্তা প্রেরণের সুবিধা।</li>
+                <li>স্বয়ংক্রিয় এক্সহস্ট চালুর মাধ্যমে বিস্ফোরণ বা অগ্নিকাণ্ডের উৎস দূরীকরণ।</li>
+            </ul>
+
+            <p><strong>প্রয়োগের স্থান:</strong></p>
+            <ul>
+                <li>বাসাবাড়ির রান্নাঘর এবং আবাসিক বহুতল ভবন।</li>
+                <li>হোটেল, রেস্তোরাঁ ও কমার্শিয়াল ডাইনিং কিচেন।</li>
+                <li>সিএনজি / এলপিজি রিফুয়েলিং স্টেশন ও ফুয়েল ডিপো।</li>
+                <li>রাসায়নিক কারখানা, টেক্সটাইল বয়লার রুম ও মেটাল ইন্ডাস্ট্রি।</li>
+            </ul>
+
+            <!-- ১২. সীমাবদ্ধতা -->
+            <h2 class="chapter-title">১২. সীমাবদ্ধতা (Limitations)</h2>
+            <ul>
+                <li>MQ-2 সেন্সরে তাপমাত্রা ও আর্দ্রতার পরিবর্তনের কারণে সামান্য ডাটা ড্রাফটিং হতে পারে।</li>
+                <li>SIM800L মডিউলটি নেটওয়ার্ক কভারেজের ওপর নির্ভরশীল।</li>
+                <li>সেন্সিং কয়েল গরম রাখার জন্য সার্বক্ষণিক বিদ্যুৎ সংযোগ বা ব্যাকআপ প্রয়োজন হয়।</li>
+            </ul>
+
+            <!-- ১৩. আনুমানিক খরচের বিবরণ -->
+            <h2 class="chapter-title">১৩. আনুমানিক খরচের বিবরণ (Estimated Cost Analysis)</h2>
+            <p>বাস্তবায়নে ব্যবহৃত যন্ত্রাংশের স্থানীয় বাজার মূল্যের বাজেট হিসাব:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>উপাদানের নাম (Components)</th>
+                        <th>পরিমাণ</th>
+                        <th>আনুমানিক মূল্য (টাকা)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ESP32 Development Board</td>
+                        <td>১ টি</td>
+                        <td>৳ ৫৫০ - ৬৫০</td>
+                    </tr>
+                    <tr>
+                        <td>MQ-2 Gas Sensor Module</td>
+                        <td>১ টি</td>
+                        <td>৳ ১৮০ - ২২০</td>
+                    </tr>
+                    <tr>
+                        <td>SIM800L GSM Module with Antenna</td>
+                        <td>১ টি</td>
+                        <td>৳ ৪৫০ - ৫৫০</td>
+                    </tr>
+                    <tr>
+                        <td>5V Single Channel Relay Module</td>
+                        <td>১ টি</td>
+                        <td>৳ ৭০ - ৯০</td>
+                    </tr>
+                    <tr>
+                        <td>Exhaust Fan, Buzzer, Buck Converter & Cables</td>
+                        <td>১ সেট</td>
+                        <td>৳ ৫০০ - ৩০০</td>
+                    </tr>
+                    <tr>
+                        <strong><td>সর্বমোট আনুমানিক খরচ:</td></strong>
+                        <td></td>
+                        <strong><td>৳ ১৭৫০ - ২১১০</td></strong>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ১৪. ভবিষ্যৎ উন্নয়ন পরিকল্পনা -->
+            <h2 class="chapter-title">১৪. ভবিষ্যৎ উন্নয়ন পরিকল্পনা (Future Scope)</h2>
+            <p>প্রজেক্টটির পরবর্তী ভার্সনে IoT ক্লাউড প্লাটফর্ম (যেমন: Blynk / ThingSpeak) যুক্ত করে মোবাইল অ্যাপের মাধ্যমে রিয়েল-টাইম ডাটা গ্রাফ আকারে প্রদর্শন করা হবে। এছাড়া স্বয়ংক্রিয়ভাবে গ্যাসের মূল লাইন বন্ধ করার জন্য এতে ইলেকট্রিক সোলোনয়েড ভালভ (Solenoid Valve) যুক্ত করার পরিকল্পনা রয়েছে।</p>
+
+            <!-- ১৫. উপসংহার -->
+            <h2 class="chapter-title">১৫. উপসংহার (Conclusion)</h2>
+            <p>প্রস্তাবিত "Advanced Gas Leakage Detection & Automated Mitigation System" একটি আধুনিক, সাশ্রয়ী ও অত্যন্ত কার্যকর নিরাপত্তা নিশ্চিতকরণ প্রযুক্তি। সময়মত বিপদ চিহ্নিত করা ও তাৎক্ষণিক স্বয়ংক্রিয় পদক্ষেপ গ্রহণ করার মাধ্যমে এটি বড় ধরনের আর্থিক ক্ষতি এবং জীবনহানি রোধে গুরুত্বপূর্ণ ভূমিকা পালন করবে।</p>
+        </div>
+    </main>
+
+    <script src="../script.js"></script>
+</body>
+</html>
