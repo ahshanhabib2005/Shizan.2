@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphics Design Portfolio - MD. Ahshan Habib Shizan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .portfolio-wrapper {
+            padding-top: 110px;
+            padding-bottom: 70px;
+            max-width: 1150px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .portfolio-header h1 {
+            font-size: 2.4rem;
+            color: #38bdf8;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .portfolio-header p {
+            color: #94a3b8;
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Tools Bar */
+        .skills-bar-strip {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 25px 0 40px 0;
+        }
+
+        .tool-badge {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(8px);
+        }
+
+        .tool-badge i {
+            color: #38bdf8;
+        }
+
+        /* 1-Column Full-Width Design Cards */
+        .designs-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .design-card {
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #38bdf8;
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .design-card:hover {
+            transform: translateX(6px);
+            border-color: rgba(56, 189, 248, 0.4);
+            border-left-color: #38bdf8;
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.12);
+        }
+
+        .design-img-box {
+            width: 420px;
+            min-width: 420px;
+            position: relative;
+            background: #070d18;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .design-img {
+            width: 100%;
+            height: 100%;
+            min-height: 260px;
+            max-height: 320px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .design-card:hover .design-img {
+            transform: scale(1.04);
+        }
+
+        .img-overlay-zoom {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #38bdf8;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            backdrop-filter: blur(6px);
+        }
+
+        .design-content-box {
+            padding: 28px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .design-tag-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .tag-category {
+            background: rgba(56, 189, 248, 0.12);
+            color: #38bdf8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        .tag-software {
+            background: rgba(255, 255, 255, 0.05);
+            color: #94a3b8;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .design-title {
+            font-size: 1.5rem;
+            color: #f8fafc;
+            margin-bottom: 10px;
+        }
+
+        .design-desc {
+            color: #94a3b8;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 8px;
+        }
+
+        .spec-list li {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spec-list li i {
+            color: #38bdf8;
+            font-size: 0.8rem;
+        }
+
+        .design-action-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            flex-wrap: wrap;
+        }
+
+        .btn-hire-design {
+            background: #25D366;
+            color: #ffffff;
+            padding: 9px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-hire-design:hover {
+            background: #1eb954;
+            transform: translateY(-2px);
+        }
+
+        .btn-view-sample {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+            padding: 9px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-view-sample:hover {
+            background: #38bdf8;
+            color: #0b1120;
+        }
+
+        /* Modal Lightbox */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 8px;
+            border: 2px solid #38bdf8;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 35px;
+            font-size: 2.2rem;
+            color: #ffffff;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .lightbox-close:hover {
+            color: #38bdf8;
+        }
+
+        @media (max-width: 850px) {
+            .design-card {
+                flex-direction: column;
+            }
+
+            .design-img-box {
+                width: 100%;
+                min-width: 100%;
+            }
+
+            .design-img {
+                height: 220px;
+            }
+
+            .design-content-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="bgCanvas"></canvas>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">Shizan.2</a>
+        <button class="menu-toggle" id="menuToggle">Menu <i class="fas fa-bars"></i></button>
+
+        <nav class="nav-menu" id="navMenu">
+            <ul class="menu-list">
+                <li style="--d: 1;"><a href="index.html">Home</a></li>
+                <li style="--d: 2;"><a href="profile.html">About Me</a></li>
+                <li style="--d: 3;" class="has-dropdown active">
+                    <a href="#" class="dropdown-btn">Projects <i class="fas fa-chevron-down dropdown-icon"></i></a>
+                    <ul class="submenu">
+                        <li><a href="video-editing.html"><i class="fas fa-video"></i> Video Editing</a></li>
+                        <li><a href="graphics-design.html" class="active"><i class="fas fa-pen-nib"></i> Graphics Design</a></li>
+                        <li><a href="microcontroller.html"><i class="fas fa-microchip"></i> Microcontroller</a></li>
+                    </ul>
+                </li>
+                <li style="--d: 4;"><a href="services.html">Services</a></li>
+                <li style="--d: 5;"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="portfolio-wrapper">
+        <!-- Header -->
+        <div class="portfolio-header">
+            <h1><i class="fas fa-pen-nib"></i> Graphics & Vector Design Portfolio</h1>
+            <p>ইলেকট্রিক্যাল সার্কিট স্কিম্যাটিক ইলাস্ট্রেশন, টেকনোলজি ব্র্যান্ডিং লোগো, সায়েন্স ফেস্ট পোস্টার ও ভেক্টর আর্টওয়ার্ক গ্যালারি।</p>
+            
+            <div class="skills-bar-strip">
+                <span class="tool-badge"><i class="fas fa-bezier-curve"></i> Adobe Illustrator</span>
+                <span class="tool-badge"><i class="fas fa-image"></i> Adobe Photoshop</span>
+                <span class="tool-badge"><i class="fas fa-sliders-h"></i> Adobe Lightroom</span>
+                <span class="tool-badge"><i class="fas fa-drafting-compass"></i> Circuit CAD Design</span>
+            </div>
+        </div>
+
+        <!-- 1-Column Full-Width Designs List -->
+        <div class="designs-container">
+
+            <!-- Item 1: Circuit Vector Design -->
+            <div class="design-card">
+                <div class="design-img-box" onclick="openLightbox('images/circuit-vector-design.jpg')">
+                    <img src="images/circuit-vector-design.jpg" alt="Technical Circuit Vector Diagram" class="design-img">
+                    <span class="img-overlay-zoom"><i class="fas fa-search-plus"></i> বড় করে দেখুন</span>
+                </div>
+                <div class="design-content-box">
+                    <div>
+                        <div class="design-tag-row">
+                            <span class="tag-category">Engineering Vector Art</span>
+                            <span class="tag-software">Adobe Illustrator (AI)</span>
+                        </div>
+                        <h2 class="design-title">টেকনিক্যাল সার্কিট ব্লুপ্রিন্ট ও ভেক্টর স্কিম্যাটিক</h2>
+                        <p class="design-desc">
+                            ইঞ্জিনিয়ারিং প্রজেক্ট রিপোর্ট, থিসিস বুকলেট এবং হাই-টেক পাবলিকেশনের জন্য সম্পূর্ণ ভেক্টর ভিত্তিক নিখুঁত সার্কিট ডায়াগ্রাম। এতে মাইক্রোকন্ট্রোলার পিনআউট, সেন্সর ইন্টারফেস, কমিউনিকেশন বাস (I2C, SPI, CAN) নির্ভুলভাবে ফুটিয়ে তোলা হয়েছে।
+                        </p>
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-circle"></i> হাই-রেজোলিউশন ভেক্টর (SVG, AI, PDF)</li>
+                            <li><i class="fas fa-check-circle"></i> ইন্ডাস্ট্রিয়াল সিম্বল ও পিনআউট একিউরেসি</li>
+                            <li><i class="fas fa-check-circle"></i> ডার্ক ও লাইট দুই মোডেই ড্রয়িং সাপোর্ট</li>
+                            <li><i class="fas fa-check-circle"></i> প্রকাশনা ও প্রেজেন্টেশন ফ্রেন্ডলি</li>
+                        </ul>
+                    </div>
+                    <div class="design-action-row">
+                        <button class="btn-view-sample" onclick="openLightbox('images/circuit-vector-design.jpg')">
+                            <i class="fas fa-expand"></i> ফুল সাইজ প্রিভিউ
+                        </button>
+                        <a href="https://wa.me/8801590059760?text=Hi%20Shizan,%20I%20need%20a%20Circuit%20Vector%20Design" target="_blank" class="btn-hire-design">
+                            <i class="fab fa-whatsapp"></i> সার্কিট ডিজাইন অর্ডার করুন
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Logo & Brand Identity -->
+            <div class="design-card">
+                <div class="design-img-box" onclick="openLightbox('images/logo-brand-design.jpg')">
+                    <img src="images/logo-brand-design.jpg" alt="Tech Startup Logo Design" class="design-img">
+                    <span class="img-overlay-zoom"><i class="fas fa-search-plus"></i> বড় করে দেখুন</span>
+                </div>
+                <div class="design-content-box">
+                    <div>
+                        <div class="design-tag-row">
+                            <span class="tag-category">Brand Identity & Logo</span>
+                            <span class="tag-software">Illustrator & Photoshop</span>
+                        </div>
+                        <h2 class="design-title">Quantum Robotics - টেক স্টার্টআপ লোগো ও ব্র্যান্ডিং</h2>
+                        <p class="design-desc">
+                            রোবটিক্স, আর্টিফিশিয়াল ইন্টেলিজেন্স এবং অটোমেশন কোম্পানির জন্য প্রিমিয়াম জিওমেট্রিক সাইবার-ফেস লোগো ডিজাইন। মেটালিক নিয়ন সায়ান ফয়েল ইফেক্ট এবং পরিচ্ছন্ন টাইপোগ্রাফি দিয়ে ব্র্যান্ডের প্রযুক্তিগত মর্যাদা তুলে ধরা হয়েছে।
+                        </p>
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-circle"></i> ইউনিক কনসেপ্ট ও ভেক্টর সোর্স ফাইল</li>
+                            <li><i class="fas fa-check-circle"></i> বিজনেস কার্ড ও স্টেশনারি মকআপ</li>
+                            <li><i class="fas fa-check-circle"></i> সোশ্যাল মিডিয়া প্রোফাইল কিট</li>
+                            <li><i class="fas fa-check-circle"></i> বিভিন্ন ব্যাকগ্রাউন্ডের জন্য ভ্যারিয়েশন</li>
+                        </ul>
+                    </div>
+                    <div class="design-action-row">
+                        <button class="btn-view-sample" onclick="openLightbox('images/logo-brand-design.jpg')">
+                            <i class="fas fa-expand"></i> ফুল সাইজ প্রিভিউ
+                        </button>
+                        <a href="https://wa.me/8801590059760?text=Hi%20Shizan,%20I%20want%20to%20order%20a%20Logo%20Design" target="_blank" class="btn-hire-design">
+                            <i class="fab fa-whatsapp"></i> লোগো ডিজাইন অর্ডার করুন
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Tech Posters & Banners -->
+            <div class="design-card">
+                <div class="design-img-box" onclick="openLightbox('images/smart-home.jpg')">
+                    <img src="images/smart-home.jpg" alt="Science Fest Banner & Poster Design" class="design-img">
+                    <span class="img-overlay-zoom"><i class="fas fa-search-plus"></i> বড় করে দেখুন</span>
+                </div>
+                <div class="design-content-box">
+                    <div>
+                        <div class="design-tag-row">
+                            <span class="tag-category">Event & Social Media Banner</span>
+                            <span class="tag-software">Photoshop & Illustrator</span>
+                        </div>
+                        <h2 class="design-title">সায়েন্স ফেস্ট, প্রজেক্ট ব্যানার ও সোশ্যাল পোস্টার</h2>
+                        <p class="design-desc">
+                            বিশ্ববিদ্যালয় বা ইনস্টিটিউটের টেকনিক্যাল ফেস্ট, রোবট প্রদর্শনী এবং সেমিনারের জন্য আকর্ষণীয় ব্যানার ও ইনফোগ্রাফিক ডিজাইন। বৈজ্ঞানিক তথ্য ও ভিজ্যুয়াল এলিমেন্ট সুন্দরভাবে উপস্থাপন করার ক্ষমতা।
+                        </p>
+                        <ul class="spec-list">
+                            <li><i class="fas fa-check-circle"></i> ফেসবুক/ইউটিউব এইচডি কভার ও থাম্বনেইল</li>
+                            <li><i class="fas fa-check-circle"></i> প্রিন্ট-রেডি ফ্লেক্স ও রোল-আপ ব্যানার (CMYK 300DPI)</li>
+                            <li><i class="fas fa-check-circle"></i> দৃষ্টি-আকর্ষণীয় কালার থিম ও টাইপোগ্রাফি</li>
+                            <li><i class="fas fa-check-circle"></i> দ্রুততম ডেলিভারি ও আনলিমিটেড রিভিশন</li>
+                        </ul>
+                    </div>
+                    <div class="design-action-row">
+                        <button class="btn-view-sample" onclick="openLightbox('images/smart-home.jpg')">
+                            <i class="fas fa-expand"></i> ফুল সাইজ প্রিভিউ
+                        </button>
+                        <a href="https://wa.me/8801590059760?text=Hi%20Shizan,%20I%20need%20a%20Poster%2FBanner%20Design" target="_blank" class="btn-hire-design">
+                            <i class="fab fa-whatsapp"></i> ব্যানার ডিজাইন অর্ডার করুন
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img src="" alt="Full Preview" class="lightbox-content" id="lightboxImg">
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MD. Ahshan Habib Shizan. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxModal').classList.add('active');
+        }
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
